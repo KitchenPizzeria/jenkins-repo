@@ -5,7 +5,6 @@ def text = readFile file: "index.html"
 pipeline {
   
   agent any
-
   
   options{
     timestamps()
@@ -32,7 +31,7 @@ pipeline {
         stage("Test on Linux"){
           steps{
             script{
-              if (${BUILD_NUMBER} in text){
+              if text.contains(%{BUILD_NUMBER}) {
                 echo "Correct build number"
               }
             }
