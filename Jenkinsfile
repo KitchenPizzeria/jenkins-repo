@@ -25,6 +25,8 @@ pipeline {
     stage("Test") {
       steps {            
           sh """
+            echo Input >
+            read input
             chmod +x contains.sh 
             ./contains.sh "${BUILD_NUMBER}"
           """
