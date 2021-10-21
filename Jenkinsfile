@@ -2,6 +2,10 @@ pipeline {
   
   agent any
   
+  options{
+    timestamp()
+  }  
+  
   stages {
    
     stage("My First Stage"){
