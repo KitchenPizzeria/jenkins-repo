@@ -1,3 +1,3 @@
 ! /bin/bash
 
-cat index.html | grep "${1}"
+cat index.html | grep ${1}
