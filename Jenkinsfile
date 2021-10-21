@@ -6,14 +6,11 @@ pipeline {
     timestamps()
   }  
   
-  environment {
-    stage_name = "${STAGE_NAME}"
-  }
-  
   stages {
    
     stage("Build"){
       steps {  
+        sh 'printenv'
         echo '${env.STAGE_NAME}'
       }
     }
