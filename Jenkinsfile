@@ -33,7 +33,7 @@ pipeline {
         stage("Test on Linux"){
           steps{
             script{
-              if ( env.text.matches(%{BUILD_NUMBER}) ) {
+              if ( env.text.matches)%{BUILD_NUMBER}) ) {
                 echo "Correct build number"
               }
             }
