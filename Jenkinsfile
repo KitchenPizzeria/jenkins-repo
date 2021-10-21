@@ -18,7 +18,7 @@ pipeline {
         greeting("Joseph")
         
         script {
-          utils.replaceString(text)
+          text = utils.replaceString(text)
         }
       
         
@@ -31,7 +31,7 @@ pipeline {
         stage("Test on Linux"){
           steps{
             script{
-              if (text.contains(%{BUILD_NUMBER})) {
+              if ( text.contains(%{BUILD_NUMBER}) ) {
                 echo "Correct build number"
               }
             }
