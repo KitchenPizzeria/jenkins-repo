@@ -15,6 +15,13 @@ pipeline {
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
         greeting("Joseph")
+        
+        script {
+          utils.printFromFunctions()
+          utils.replaceString()
+        }
+      
+        
       }
     }
     
