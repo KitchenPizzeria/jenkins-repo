@@ -2,6 +2,11 @@ def printFromFunction() {
   println("I am printing this from the function in GROOOVVVYYYYY!")
 }
 
+def replaceString() {
+  def text = readFile file: "index.html" 
+  text = text.replaceAll("%BUILD_NUMBER%","${BUILD_NUMBERR}")
+  writefile file: "index.html", text: text
+}  
 
 pipeline {
   
