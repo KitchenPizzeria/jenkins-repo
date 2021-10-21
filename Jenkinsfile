@@ -17,7 +17,7 @@ pipeline {
         greeting("Joseph")
         
         script {
-          utils.printFromFunctions()
+          utils.printFromFunction()
           utils.replaceString()
         }
       
