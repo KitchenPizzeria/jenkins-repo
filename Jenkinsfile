@@ -18,7 +18,7 @@ pipeline {
       }
     }
     
-    Stage("Test"){
+    stage("Test"){
       parallel {
     
         stage("Test on Linux"){
