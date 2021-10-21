@@ -24,7 +24,8 @@ pipeline {
     
     stage("Test") {
       steps{            
-        sh "cat index.html | grep 'This is jenkins ran job with build number: ${BUILD_NUMBER}'"
+        sh "cat index.html | grep ' s
+        This is jenkins ran job with build number: ${env.BUILD_NUMBER}'"
        
       } 
     }
