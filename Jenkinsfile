@@ -8,18 +8,23 @@ pipeline {
   
   stages {
    
-    stage("My First Stage"){
-      steps {
-        
-        echo 'This is my first stage'
-         
+    stage("Build"){
+      steps {  
+        echo '&{STAGE_NAME}'
       }
     }
     
-    stage("Print Environment Variables"){
+    stage("Test"){
       steps{
-        sh "printenv"
+        echo '&{STAGE_NAME}'
       }
     }
+    
+    stage("Deploy"){
+      steps {
+        echo '&{STAGE_NAME}'
+      }
+    }
+    
   }
 }
