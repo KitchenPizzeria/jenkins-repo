@@ -13,8 +13,7 @@ pipeline {
    
     stage("Build"){
       steps {  
-        echo "The name of this stage: ${STAGE_NAME}"
-        function()
+        echo "The name of this stage: ${STAGE_NAME}
         hello()
       }
     }
