@@ -1,5 +1,7 @@
 @Library('jenkins_shared') _
 
+def text = readFile file: "index.html" 
+
 pipeline {
   
   agent any
@@ -17,8 +19,7 @@ pipeline {
         greeting("Joseph")
         
         script {
-          utils.printFromFunction()
-          utils.replaceString()
+          utils.replaceString(text)
         }
       
         
@@ -30,7 +31,11 @@ pipeline {
     
         stage("Test on Linux"){
           steps{
-            echo "The name of this stage: ${STAGE_NAME}"
+            script{
+              if (${BUILD_NUMBER} in text){
+                echo "Correct build number"
+              }
+            }
           }
         }
 
@@ -39,6 +44,22 @@ pipeline {
             echo "The name of this stage: ${STAGE_NAME}"
           }
         }
+      }
+    }
+    
+    stage("Package Artifact"){
+      steps{
+        sh """
+          mkdir -p build
+          mv index.html build
+          tar -zcvf build.tgz build
+        """
+      }
+    }
+    
+    stage("Archive Artifact"){
+      steps{
+        archiveArtifacts artifacts: 'build.tgz', onlyIfSuccessful: true
       }
     }
       
