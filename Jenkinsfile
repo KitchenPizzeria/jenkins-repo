@@ -7,7 +7,7 @@ pipeline {
   }  
   
   environment {
-    stage_name = ${STAGE_NAME}
+    stage_name = "${STAGE_NAME}"
   }
   
   stages {
