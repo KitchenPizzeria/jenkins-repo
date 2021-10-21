@@ -13,7 +13,7 @@ pipeline {
    
     stage("Build"){
       steps {  
-        echo "The name of this stage: ${STAGE_NAME}
+        echo "The name of this stage: ${STAGE_NAME}"
         hello()
       }
     }
@@ -23,13 +23,13 @@ pipeline {
     
         stage("Test on Linux"){
           steps{
-            echo 'Test on Linux'
+            echo "The name of this stage: ${STAGE_NAME}"
           }
         }
 
         stage("Test on Windows"){
           steps {
-            echo 'Test on Windows'
+            echo "The name of this stage: ${STAGE_NAME}"
           }
         }
       }
@@ -37,7 +37,7 @@ pipeline {
       
     stage("Deploy"){
       steps {
-        echo 'Deploy'
+        echo "The name of this stage: ${STAGE_NAME}"
       }
     }
     
