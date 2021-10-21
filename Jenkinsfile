@@ -1,7 +1,5 @@
 @Library('jenkins_shared') _
 
-
-
 pipeline {
   
   agent any
@@ -9,10 +7,9 @@ pipeline {
   options{
     timestamps()
   }  
- 
-  
+
   stages {
-   
+  
     stage("Build"){
       steps {  
         
@@ -22,29 +19,14 @@ pipeline {
         script{
           utils.replaceString(text)
         }
-        
-      
-        
       }
     }
     
-    stage("Test"){
-      parallel {
-    
-        stage("Test on Linux"){
-          steps{            
-            sh '''
-              cat index.html | grep "This is jenkins ran job with build number: ${BUILD_NUMBER}"
-            '''
-          }
-        }
-
-        stage("Test on Windows"){
-          steps {
-            echo "The name of this stage: ${STAGE_NAME}"
-          }
-        }
-      }
+    stage("Test") {
+      steps{            
+        sh "cat index.html | grep This is jenkins ran job with build number: ${BUILD_NUMBER}"
+       
+      } 
     }
     
     stage("Package Artifact"){
