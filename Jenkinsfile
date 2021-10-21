@@ -1,6 +1,7 @@
 pipeline {
   
   agent any
+
   
   options{
     timestamps()
@@ -11,7 +12,7 @@ pipeline {
     stage("Build"){
       steps {  
         sh 'printenv'
-        echo '${env.STAGE_NAME}'
+        echo "The name of this stage: ${STAGE_NAME}"
       }
     }
     
