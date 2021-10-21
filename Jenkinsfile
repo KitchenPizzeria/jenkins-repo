@@ -1,9 +1,5 @@
 @Library('jenkins_shared') _
 
-def printFromFunction() {
-  println("I am printing this from the function in GROOOVVVYYYYY!")
-}
-
 pipeline {
   
   agent any
@@ -18,7 +14,7 @@ pipeline {
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        printFromFunction()
+        function()
         hello()
       }
     }
