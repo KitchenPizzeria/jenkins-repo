@@ -19,7 +19,7 @@ pipeline {
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
         printFromFunction()
-        hello.groovy()
+        hello()
       }
     }
     
