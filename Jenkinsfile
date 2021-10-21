@@ -30,11 +30,10 @@ pipeline {
       parallel {
     
         stage("Test on Linux"){
-          steps{
-            
-            cat "index.html" | grep "This is jenkins ran job with build number: ${BUILD_NUMBER}"
-            
-            
+          steps{            
+            sh '''
+              cat index.html | grep "This is jenkins ran job with build number: ${BUILD_NUMBER}"
+            '''
           }
         }
 
