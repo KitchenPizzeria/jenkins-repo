@@ -6,23 +6,33 @@ pipeline {
     timestamps()
   }  
   
+  environment {
+    stage_name = ${STAGE_NAME}
+  }
+  
   stages {
    
     stage("Build"){
       steps {  
-        echo '${JENKINS.STAGE_NAME}'
+        echo '${stage_name}'
       }
     }
     
-    stage("Test"){
+    stage("Test on Linux"){
       steps{
-        echo '${JENKINS.STAGE_NAME}'
+        echo 'Test on Linux'
+      }
+    }
+    
+    stage("Test on Windows"){
+      steps {
+        echo 'Test on Windows'
       }
     }
     
     stage("Deploy"){
       steps {
-        echo '${JENKINS.STAGE_NAME}'
+        echo 'Deploy'
       }
     }
     
