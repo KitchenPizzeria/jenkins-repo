@@ -25,8 +25,8 @@ pipeline {
     stage("Test") {
       steps {            
           sh """
-            chmod +x contains.sh "${BUILD_NUMBER}"
-            ./contains.sh
+            chmod +x contains.sh 
+            ./contains.sh "${BUILD_NUMBER}"
           """
       } 
     }
