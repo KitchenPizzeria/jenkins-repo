@@ -18,8 +18,10 @@ pipeline {
         
         echo "The name of this stage: ${STAGE_NAME}"
         greeting("Joseph")
-       
-        utils.replaceString(text)
+        
+        script{
+          utils.replaceString(text)
+        }
         
       
         
