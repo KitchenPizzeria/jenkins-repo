@@ -26,7 +26,7 @@ pipeline {
       steps {            
           sh """
           
-            input="${BUILD_NUMBER}"
+            input=${BUILD_NUMBER}
             
             chmod +x contains.sh 
             ./contains.sh "${input}"
