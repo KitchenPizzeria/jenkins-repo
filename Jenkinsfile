@@ -4,7 +4,7 @@ def printFromFunction() {
 
 def replaceString() {
   def text = readFile file: "index.html" 
-  text = text.replaceAll("%BUILD_NUMBER%","${BUILD_NUMBERR}")
+  text = text.replaceAll("%BUILD_NUMBER%","${BUILD_NUMBER}")
   writefile file: "index.html", text: text
 }  
 
