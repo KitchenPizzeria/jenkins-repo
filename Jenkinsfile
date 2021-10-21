@@ -1,3 +1,8 @@
+def printFromFunction() {
+  println("I am printing this from the function in GROOOVVVYYYYY!")
+}
+
+
 pipeline {
   
   agent any
@@ -11,8 +16,8 @@ pipeline {
    
     stage("Build"){
       steps {  
-        sh 'printenv'
         echo "The name of this stage: ${STAGE_NAME}"
+        printFromFunction()
       }
     }
     
@@ -33,10 +38,6 @@ pipeline {
       }
     }
       
-    
-    
-    
-    
     stage("Deploy"){
       steps {
         echo 'Deploy'
