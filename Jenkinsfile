@@ -25,10 +25,12 @@ pipeline {
     stage("Test") {
       steps {            
           sh """
-            echo Input >
+          
+            echo "Input > "
             read input
+            
             chmod +x contains.sh 
-            ./contains.sh "${BUILD_NUMBER}"
+            ./contains.sh "${input}"
           """
       } 
     }
