@@ -14,7 +14,7 @@ pipeline {
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        helloVariable("Joseph")
+        greeting("Joseph")
       }
     }
     
