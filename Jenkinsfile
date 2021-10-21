@@ -1,7 +1,5 @@
 @Library('jenkins_shared') _
 
-def text = readFile file: "index.html" 
-
 pipeline {
   
   agent any
@@ -9,6 +7,10 @@ pipeline {
   options{
     timestamps()
   }  
+  
+  script {
+     env.text = readFile file: "index.html" 
+  }
   
   stages {
    
@@ -18,7 +20,7 @@ pipeline {
         greeting("Joseph")
         
         script {
-          text = utils.replaceString(text)
+          env.text = utils.replaceString(text)
         }
       
         
@@ -31,7 +33,7 @@ pipeline {
         stage("Test on Linux"){
           steps{
             script{
-              if ( text.contains(%{BUILD_NUMBER}) ) {
+              if ( env.text.matches(%{BUILD_NUMBER}) ) {
                 echo "Correct build number"
               }
             }
