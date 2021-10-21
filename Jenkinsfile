@@ -24,10 +24,11 @@ pipeline {
     
     stage("Test") {
       steps {            
-        sh """
-          ! /bin/bash
-          cat index.html | grep \"<p>This is jenkins ran job with build number: ${BUILD_NUMBER}</p>\"
-        """
+          sh """
+            echo index.html | grep \"<p>This is jenkins ran job with build number: ${BUILD_NUMBER}</p>\" > contains.sh
+            chmod +x ./contains.sh
+            ./contains.sh
+          """
       } 
     }
     
