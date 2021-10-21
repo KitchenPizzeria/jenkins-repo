@@ -24,10 +24,7 @@ pipeline {
     
     stage("Test") {
       steps {            
-          sh """
-          
-   
-            
+          sh """         
             chmod +x contains.sh 
             ./contains.sh "jenkins"
           """
