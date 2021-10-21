@@ -10,19 +10,19 @@ pipeline {
    
     stage("Build"){
       steps {  
-        echo '${STAGE_NAME}'
+        echo '${JENKINS.STAGE_NAME}'
       }
     }
     
     stage("Test"){
       steps{
-        echo '${STAGE_NAME}'
+        echo '${JENKINS.STAGE_NAME}'
       }
     }
     
     stage("Deploy"){
       steps {
-        echo '${STAGE_NAME}'
+        echo '${JENKINS.STAGE_NAME}'
       }
     }
     
