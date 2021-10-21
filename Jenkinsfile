@@ -14,19 +14,22 @@ pipeline {
    
     stage("Build"){
       steps {  
-        echo '${stage_name}'
+        echo '${env.STAGE_NAME}'
       }
     }
     
-    stage("Test on Linux"){
-      steps{
-        echo 'Test on Linux'
-      }
-    }
+    parallel {
     
-    stage("Test on Windows"){
-      steps {
-        echo 'Test on Windows'
+      stage("Test on Linux"){
+        steps{
+          echo 'Test on Linux'
+        }
+      }
+
+      stage("Test on Windows"){
+        steps {
+          echo 'Test on Windows'
+        }
       }
     }
     
