@@ -18,20 +18,26 @@ pipeline {
       }
     }
     
-    parallel {
+    Stage("Test"){
+      parallel {
     
-      stage("Test on Linux"){
-        steps{
-          echo 'Test on Linux'
+        stage("Test on Linux"){
+          steps{
+            echo 'Test on Linux'
+          }
         }
-      }
 
-      stage("Test on Windows"){
-        steps {
-          echo 'Test on Windows'
+        stage("Test on Windows"){
+          steps {
+            echo 'Test on Windows'
+          }
         }
       }
     }
+      
+    
+    
+    
     
     stage("Deploy"){
       steps {
