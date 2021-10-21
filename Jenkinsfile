@@ -26,10 +26,10 @@ pipeline {
       steps {            
           sh """
           
-            input=${BUILD_NUMBER}
+   
             
             chmod +x contains.sh 
-            ./contains.sh "${input}"
+            ./contains.sh "jenkins"
           """
       } 
     }
