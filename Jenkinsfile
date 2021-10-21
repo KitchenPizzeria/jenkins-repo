@@ -1,5 +1,7 @@
 @Library('jenkins_shared') _
 
+
+
 pipeline {
   
   agent any
@@ -7,21 +9,18 @@ pipeline {
   options{
     timestamps()
   }  
-  
-  script {
-     env.text = readFile file: "index.html" 
-  }
+ 
   
   stages {
    
     stage("Build"){
       steps {  
+        
         echo "The name of this stage: ${STAGE_NAME}"
         greeting("Joseph")
+       
+        utils.replaceString(text)
         
-        script {
-          env.text = utils.replaceString(text)
-        }
       
         
       }
@@ -32,11 +31,10 @@ pipeline {
     
         stage("Test on Linux"){
           steps{
-            script{
-              if ( env.text.matches)%{BUILD_NUMBER}) ) {
-                echo "Correct build number"
-              }
-            }
+            
+            cat "index.html" | grep "This is jenkins ran job with build number: ${BUILD_NUMBER}"
+            
+            
           }
         }
 
