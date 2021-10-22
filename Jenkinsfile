@@ -22,15 +22,10 @@ pipeline {
   }
 
   stages {
-    
-   
-    
-    
-  
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        echo "The credentials Usernamee: ${GITHUB_USER}"
+        //echo "The credentials Username: ${GITHUB_USER}"
         greeting(params.name)
         script{
           utils.replaceString()
