@@ -123,9 +123,9 @@ pipeline {
     always {
       archiveArtifacts artifacts: "build/${FILENAME}"
     }
-//     cleanup {
-//       cleanWs()
-//     } 
+    cleanup {
+      cleanWs()
+    } 
   }
   
   
