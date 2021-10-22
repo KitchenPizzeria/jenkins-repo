@@ -36,6 +36,21 @@ pipeline {
       }
     }
     
+    stage("Python Build"){
+      agent {
+        docker {
+          image "python:latest"
+          args "-v ${WORKSPACE}/python:/home/python"
+        }
+      }
+      
+      steps {
+        sh '''
+        pyhon --version > /home/python/python_version.txt
+        '''
+      }
+    }
+    
     stage("Docker Build"){
       agent {
         docker {
