@@ -31,7 +31,8 @@ pipeline {
           utils.replaceString()
         }
         sh '''
-          mkdir -p docker 
+          mkdir -p docker
+          mkdir -p docker
         '''
       }
     }
@@ -46,7 +47,7 @@ pipeline {
       
       steps {
         sh '''
-        pyhon --version > /home/python/python_version.txt
+        python3 --version > /home/python/python_version.txt
         '''
       }
     }
