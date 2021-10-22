@@ -23,6 +23,24 @@ pipeline {
 
   stages {
     
+   
+    
+    
+  
+    stage("Build"){
+      steps {  
+        echo "The name of this stage: ${STAGE_NAME}"
+        echo "The credentials Usernamee: ${GITHUB_USER}"
+        greeting(params.name)
+        script{
+          utils.replaceString()
+        }
+        sh '''
+          mkdir -p docker 
+        '''
+      }
+    }
+    
     stage("Docker Build"){
       agent {
         docker {
@@ -36,17 +54,6 @@ pipeline {
         node --version > /home/node/docker_node_version
         npm --version > /home/node/docker_npm_version
         '''
-      }
-    }
-  
-    stage("Build"){
-      steps {  
-        echo "The name of this stage: ${STAGE_NAME}"
-        echo "The credentials Usernamee: ${GITHUB_USER}"
-        greeting(params.name)
-        script{
-          utils.replaceString()
-        }
       }
     }
     
