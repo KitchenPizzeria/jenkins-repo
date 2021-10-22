@@ -10,6 +10,7 @@ pipeline {
   
   environment {
      FILENAME = "index.html"
+     GITHUB = credentials("GitHub")
   }
   
   parameters {
@@ -21,6 +22,7 @@ pipeline {
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
+        echo "The credentials: ${GITHUB}"
         greeting(params.name)
         script{
           utils.replaceString()
