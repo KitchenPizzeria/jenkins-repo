@@ -77,7 +77,7 @@ pipeline {
   
   post {
     always {
-      archiveArtifacts artifacts: 'index.html'
+      archiveArtifacts artifacts: 'build/index.html'
     }
   }
   
