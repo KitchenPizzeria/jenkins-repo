@@ -13,7 +13,6 @@ pipeline {
     stage("Build"){
       steps {  
         
-        build '1_freestyle'
         echo "The name of this stage: ${STAGE_NAME}"
         greeting("Joseph")
         
