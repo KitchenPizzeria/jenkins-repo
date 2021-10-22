@@ -15,6 +15,10 @@ pipeline {
   
   parameters {
      string(name: 'name', defaultValue: 'Joseph')
+     text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+     booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+     choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
   }
 
   stages {
@@ -22,7 +26,7 @@ pipeline {
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        echo "The credentials: ${GITHUB}"
+        echo "The credentials Usernamee: ${GITHUB_USER}"
         greeting(params.name)
         script{
           utils.replaceString()
