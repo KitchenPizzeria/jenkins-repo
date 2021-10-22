@@ -7,13 +7,21 @@ pipeline {
   options {
     timestamps()
   }  
+  
+  environment {
+     FILENAME = "index.html"
+  }
+  
+  parameters {
+     string(name: 'name', defaultValue: 'Joseph')
+  }
 
   stages {
   
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        greeting("Joseph")
+        greeting(params.name)
         script{
           utils.replaceString()
         }
@@ -33,7 +41,7 @@ pipeline {
       steps {
         sh """
           mkdir -p build
-          mv index.html build
+          mv ${FILENAME} build
           tar -zcvf build.tgz build
         """
       }
@@ -77,8 +85,11 @@ pipeline {
   
   post {
     always {
-      archiveArtifacts artifacts: 'build/index.html'
+      archiveArtifacts artifacts: "build/${FILENAME}"
     }
+    cleanup {
+      cleanWs()
+    } 
   }
   
   
@@ -87,7 +98,5 @@ pipeline {
   
   
   
-  
-  
-  
+
 }
